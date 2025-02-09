@@ -1,0 +1,14 @@
+D:\!ЕГОР\Project\pet1\bin\Debug\net9.0\pet1.exe
+D:\!ЕГОР\Project\pet1\bin\Debug\net9.0\pet1.deps.json
+D:\!ЕГОР\Project\pet1\bin\Debug\net9.0\pet1.runtimeconfig.json
+D:\!ЕГОР\Project\pet1\bin\Debug\net9.0\pet1.dll
+D:\!ЕГОР\Project\pet1\bin\Debug\net9.0\pet1.pdb
+D:\!ЕГОР\Project\pet1\obj\Debug\net9.0\pet1.GeneratedMSBuildEditorConfig.editorconfig
+D:\!ЕГОР\Project\pet1\obj\Debug\net9.0\pet1.AssemblyInfoInputs.cache
+D:\!ЕГОР\Project\pet1\obj\Debug\net9.0\pet1.AssemblyInfo.cs
+D:\!ЕГОР\Project\pet1\obj\Debug\net9.0\pet1.csproj.CoreCompileInputs.cache
+D:\!ЕГОР\Project\pet1\obj\Debug\net9.0\pet1.dll
+D:\!ЕГОР\Project\pet1\obj\Debug\net9.0\refint\pet1.dll
+D:\!ЕГОР\Project\pet1\obj\Debug\net9.0\pet1.pdb
+D:\!ЕГОР\Project\pet1\obj\Debug\net9.0\pet1.genruntimeconfig.cache
+D:\!ЕГОР\Project\pet1\obj\Debug\net9.0\ref\pet1.dll
