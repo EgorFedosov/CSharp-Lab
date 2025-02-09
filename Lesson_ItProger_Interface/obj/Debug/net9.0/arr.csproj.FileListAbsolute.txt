@@ -1,0 +1,14 @@
+D:\!ЕГОР\Project\arr\bin\Debug\net9.0\arr.exe
+D:\!ЕГОР\Project\arr\bin\Debug\net9.0\arr.deps.json
+D:\!ЕГОР\Project\arr\bin\Debug\net9.0\arr.runtimeconfig.json
+D:\!ЕГОР\Project\arr\bin\Debug\net9.0\arr.dll
+D:\!ЕГОР\Project\arr\bin\Debug\net9.0\arr.pdb
+D:\!ЕГОР\Project\arr\obj\Debug\net9.0\arr.GeneratedMSBuildEditorConfig.editorconfig
+D:\!ЕГОР\Project\arr\obj\Debug\net9.0\arr.AssemblyInfoInputs.cache
+D:\!ЕГОР\Project\arr\obj\Debug\net9.0\arr.AssemblyInfo.cs
+D:\!ЕГОР\Project\arr\obj\Debug\net9.0\arr.csproj.CoreCompileInputs.cache
+D:\!ЕГОР\Project\arr\obj\Debug\net9.0\arr.dll
+D:\!ЕГОР\Project\arr\obj\Debug\net9.0\refint\arr.dll
+D:\!ЕГОР\Project\arr\obj\Debug\net9.0\arr.pdb
+D:\!ЕГОР\Project\arr\obj\Debug\net9.0\arr.genruntimeconfig.cache
+D:\!ЕГОР\Project\arr\obj\Debug\net9.0\ref\arr.dll

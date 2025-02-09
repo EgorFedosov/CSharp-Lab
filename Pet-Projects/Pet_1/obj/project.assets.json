@@ -8,19 +8,19 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\phone\\.nuget\\packages\\": {}
+    "C:\\Users\\Егор\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\!ЕГОР\\Project\\pet1\\pet1.csproj",
+      "projectUniqueName": "D:\\Project\\Pet-Projects\\Pet_1\\pet1.csproj",
       "projectName": "pet1",
-      "projectPath": "D:\\!ЕГОР\\Project\\pet1\\pet1.csproj",
-      "packagesPath": "C:\\Users\\phone\\.nuget\\packages\\",
-      "outputPath": "D:\\!ЕГОР\\Project\\pet1\\obj\\",
+      "projectPath": "D:\\Project\\Pet-Projects\\Pet_1\\pet1.csproj",
+      "packagesPath": "C:\\Users\\Егор\\.nuget\\packages\\",
+      "outputPath": "D:\\Project\\Pet-Projects\\Pet_1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\phone\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Егор\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
