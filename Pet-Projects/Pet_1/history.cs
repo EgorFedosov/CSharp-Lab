@@ -33,20 +33,27 @@ namespace pet1
             private set { }
         }
 
-        public void Print(int Value, string Category)
+        public void Print(int Value, string Category) // запись в файл еще не реализована(уже начинает записывать с новой строки но c o.Write траблы)
         {
-
-
+            // string info = null;
 
             if (Value > 0)
             {
                 Console.WriteLine($"[+] {Value}$  ({Category})");
+                // info = $"[+] {Value}$ {Category}\n";
             }
 
             if (Value < 0)
             {
                 Console.WriteLine($"[-] {Value}$  ({Category})");
+                // info = $"[-] {Value}$ {Category}\n";
             }
+
+            // using (FileStream o = new FileStream("info.txt", FileMode.OpenOrCreate))
+            // {
+            //     byte[] arr = System.Text.Encoding.Default.GetBytes(info);
+            //     o.Write(arr, 0, arr.Length);
+            // }
         }
 
     }

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 
 namespace pet1
 {
 
-    class Programm
+    class Program
     {
 
         static void Main()
@@ -12,7 +13,7 @@ namespace pet1
             int t, income, expense, balance = 0;
             string category;
 
-            List<object> operation = new List<object> { };
+            List<history> operation = new List<history> { };
 
 
 
@@ -43,8 +44,8 @@ namespace pet1
 
                             history obj = new history(income, category);
                             operation.Add(obj);
-
                             balance += income;
+
                             break;
                         }
 
@@ -76,10 +77,14 @@ namespace pet1
                     case 4:
                         {
                             Console.WriteLine($"Number of operations is {history.Number_of_Operations}");
-                            foreach (history obj in operation)
+                            for (int i = 0; i < operation.Count; i++)
                             {
+                                history obj = operation[i];
                                 obj.Print(obj.Value, obj.Category);
                             }
+
+
+
                             break;
                         }
 
