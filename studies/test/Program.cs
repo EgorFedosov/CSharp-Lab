@@ -6,8 +6,8 @@ namespace test
     {
         static void Main()
         {
-           
-        }
 
+
+        }
     }
 }

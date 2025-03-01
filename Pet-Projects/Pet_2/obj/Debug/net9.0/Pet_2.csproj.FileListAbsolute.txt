@@ -1,0 +1,15 @@
+D:\Project\Pet-Projects\Pet_2\bin\Debug\net9.0\Pet_2.exe
+D:\Project\Pet-Projects\Pet_2\bin\Debug\net9.0\Pet_2.deps.json
+D:\Project\Pet-Projects\Pet_2\bin\Debug\net9.0\Pet_2.runtimeconfig.json
+D:\Project\Pet-Projects\Pet_2\bin\Debug\net9.0\Pet_2.dll
+D:\Project\Pet-Projects\Pet_2\bin\Debug\net9.0\Pet_2.pdb
+D:\Project\Pet-Projects\Pet_2\obj\Debug\net9.0\Pet_2.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\Pet-Projects\Pet_2\obj\Debug\net9.0\Pet_2.AssemblyInfoInputs.cache
+D:\Project\Pet-Projects\Pet_2\obj\Debug\net9.0\Pet_2.AssemblyInfo.cs
+D:\Project\Pet-Projects\Pet_2\obj\Debug\net9.0\Pet_2.csproj.CoreCompileInputs.cache
+D:\Project\Pet-Projects\Pet_2\obj\Debug\net9.0\Pet_2.sourcelink.json
+D:\Project\Pet-Projects\Pet_2\obj\Debug\net9.0\Pet_2.dll
+D:\Project\Pet-Projects\Pet_2\obj\Debug\net9.0\refint\Pet_2.dll
+D:\Project\Pet-Projects\Pet_2\obj\Debug\net9.0\Pet_2.pdb
+D:\Project\Pet-Projects\Pet_2\obj\Debug\net9.0\Pet_2.genruntimeconfig.cache
+D:\Project\Pet-Projects\Pet_2\obj\Debug\net9.0\ref\Pet_2.dll
