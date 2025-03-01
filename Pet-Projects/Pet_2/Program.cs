@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using pet_2;
 
 
 namespace Pet_2
@@ -16,8 +18,8 @@ namespace Pet_2
             ushort count = 1;
 
 
-
             List<Lib> list = new List<Lib> { };
+            List<user> user = new List<user> { };
             do
             {
                 Console.WriteLine();
@@ -26,7 +28,8 @@ namespace Pet_2
                 Console.WriteLine("2. Найти книгу ");
                 Console.WriteLine("3. Выдать книгу ");
                 Console.WriteLine("4. Показать  доступных список книг ");
-                Console.WriteLine("5. Выйти ");
+                Console.WriteLine("5. Показать пользователей библиотеки ");
+                Console.WriteLine("6. Выйти ");
                 Console.Write("Выберите действие: ");
                 t = Convert.ToByte(Console.ReadLine());
 
@@ -78,7 +81,16 @@ namespace Pet_2
                                 flag = list[i].Search(issueBook);
                                 if (flag)
                                 {
-                                    Console.WriteLine("Книга найдена, готова к выдаче");
+                                    Console.WriteLine($"Книга найдена \"{issueBook}\", готова к выдаче");
+                                    Console.WriteLine("Книга выдается(Имя и возраст): ");
+                                    string name = Console.ReadLine();
+                                    ushort age = Convert.ToUInt16(Console.ReadLine());
+
+                                    user _user = new user(name, age, list[i]);
+                                    user.Add(_user); // Добавить проверки на пользователя чтобы не добавлять
+                                    // одинаковых, так же реализовать запись нескольких книг на 1-го юзера
+                                    Console.WriteLine($"Книга записана на {name}.");
+
                                     list.Remove(list[i]);
                                 }
 
@@ -105,6 +117,11 @@ namespace Pet_2
 
                     case 5:
                         {
+
+                            break;
+                        }
+                    case 6:
+                        {
                             Console.WriteLine("Заврешение программы... ");
                             break;
                         }
@@ -112,7 +129,7 @@ namespace Pet_2
 
             }
 
-            while (t != 5);
+            while (t != 6);
         }
 
     }
