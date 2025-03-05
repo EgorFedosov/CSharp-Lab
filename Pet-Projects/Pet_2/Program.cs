@@ -14,12 +14,11 @@ namespace Pet_2
             string title, author;
             short year_of_publication;
             byte t;
-            bool RedFlag = false;
             ushort count = 1;
 
 
             List<Lib> list = new List<Lib> { };
-            List<user> user = new List<user> { };
+            List<user> userlist = new List<user> { };
             do
             {
                 Console.WriteLine();
@@ -29,7 +28,8 @@ namespace Pet_2
                 Console.WriteLine("3. Выдать книгу ");
                 Console.WriteLine("4. Показать  доступных список книг ");
                 Console.WriteLine("5. Показать пользователей библиотеки ");
-                Console.WriteLine("6. Выйти ");
+                Console.WriteLine("6. Добавить пользователя ");
+                Console.WriteLine("7. Выйти ");
                 Console.Write("Выберите действие: ");
                 t = Convert.ToByte(Console.ReadLine());
 
@@ -37,15 +37,18 @@ namespace Pet_2
                 {
                     case 1:
                         {
+
                             Console.Write("Введите название книги: ");
                             title = Console.ReadLine();
                             Console.Write("Введите автора книги: ");
                             author = Console.ReadLine();
+
                             Console.Write("Введите год издания: ");
                             year_of_publication = Convert.ToInt16(Console.ReadLine());
 
-                            Lib Book = new Lib(title, author, year_of_publication, count);
+                            Lib Book = new Lib(title, author, year_of_publication);
                             list.Add(Book);
+
                             count++;
 
 
@@ -57,58 +60,102 @@ namespace Pet_2
                         {
                             Console.Write("Введите название книги для поиска: ");
                             string searchBook = Console.ReadLine();
-                            bool redFlag = false;
+                            bool redFlag = false, wasFlag = false;
                             foreach (Lib o in list)
                             {
                                 redFlag = o.Search(searchBook);
                                 if (redFlag)
                                 {
-                                    Console.WriteLine($"Книга найдена ее номер: {o._count}");
+                                    wasFlag = true;
+                                    Console.WriteLine($"Книга \"{o._BookTitle}\" {o._AuthorBook}, найдена");
                                 }
-                                // else Console.WriteLine("Книга не найдена.");
+
                             }
+
+                            if (!wasFlag) Console.WriteLine($"Книга {searchBook} не найдена ");
 
                             break;
                         }
 
                     case 3:
                         {
+
+                            bool flag = false, userflag = false, wasUser = false, wasBook = false;
                             Console.Write("Введите название книги для выдачи: ");
                             string issueBook = Console.ReadLine();
-                            bool flag = false;
                             for (int i = 0; i < list.Count; i++)
                             {
                                 flag = list[i].Search(issueBook);
                                 if (flag)
                                 {
-                                    Console.WriteLine($"Книга найдена \"{issueBook}\", готова к выдаче");
-                                    Console.WriteLine("Книга выдается(Имя и возраст): ");
-                                    string name = Console.ReadLine();
-                                    ushort age = Convert.ToUInt16(Console.ReadLine());
+                                    wasBook = true;
+                                    Console.WriteLine($"Книга \"{issueBook}\" найдена, готова к выдаче");
+                                    Console.Write("Книга выдается(имя и возраст через пробел пожалуйста): ");
 
-                                    user _user = new user(name, age, list[i]);
-                                    user.Add(_user); // Добавить проверки на пользователя чтобы не добавлять
-                                    // одинаковых, так же реализовать запись нескольких книг на 1-го юзера
-                                    Console.WriteLine($"Книга записана на {name}.");
+                                    string input = Console.ReadLine();
+                                    string[] parts = input.Split(' ');
+
+                                    if (parts.Length != 2)
+                                    {
+                                        Console.WriteLine("Ошибка ввода");
+                                        break;
+                                    }
+
+                                    string name = parts[0];
+                                    ushort age = Convert.ToUInt16(parts[1]);
+
+                                    for (int j = 0; j < userlist.Count; j++)
+                                    {
+                                        userflag = userlist[j].SearchUser(name, age);
+                                        if (userflag)
+                                        {
+                                            Console.WriteLine($"Пользователь {name} {age} уже добавлен в систему");
+                                            userlist[j].Add(list[i]);
+                                            wasUser = true;
+                                        }
+                                    }
+
+                                    if (!wasUser)
+                                    {
+                                        user _user = new user(name, age);
+                                        userlist.Add(_user);
+                                        _user.Add(list[i]); // добавили книгу на челика
+                                    }
+
+
+
+                                    Console.WriteLine($"Книга записана на {name} {age}.");
 
                                     list.Remove(list[i]);
                                 }
+                                if (i == list.Count - 1 && !wasBook)
+                                {
 
+                                    Console.WriteLine($"Книга {issueBook} не найдена");
+                                }
                             }
-
-                            break;
                         }
+                        break;
 
                     case 4:
                         {
                             Console.WriteLine();
                             Console.WriteLine("Список доступных книг: ");
 
-                            foreach (Lib o in list)
+                            if (list.Count == 0)
                             {
-                                o.print();
+                                Console.WriteLine(" (их нет)");
+                            }
+                            else
+                            {
+                                foreach (Lib o in list)
+                                {
+                                    o.print();
+                                }
+
                             }
 
+                            Console.WriteLine();
                             Console.WriteLine($"Всего книг: {list.Count}");
 
 
@@ -117,10 +164,63 @@ namespace Pet_2
 
                     case 5:
                         {
+                            Console.WriteLine();
+                            Console.WriteLine(" --- Все пользователи --- ");
+                            if (userlist.Count == 0)
+                            {
+                                Console.WriteLine("Пользователей нет");
+                            }
+
+                            else
+                            {
+                                foreach (user o in userlist)
+                                {
+                                    o.print();
+                                }
+                            }
+                            Console.WriteLine("Всего пользователей: " + userlist.Count);
+                            break;
+                        }
+
+                    case 6:
+                        {
+                            Console.Write("Введите имя и возраст пользователя(через пробел): ");
+
+                            string input = Console.ReadLine();
+                            string[] parts = input.Split(' ');
+
+                            if (parts.Length != 2)
+                            {
+                                Console.WriteLine("Ошибка ввода!");
+                                break;
+                            }
+
+                            string name = parts[0];
+                            ushort age = Convert.ToUInt16(parts[1]);
+
+                            bool userflag = false;
+
+                            for (int j = 0; j < userlist.Count; j++)
+                            {
+                                userflag = userlist[j].SearchUser(name, age);
+                            }
+
+                            if (userflag)
+                            {
+                                Console.WriteLine($"Пользователь {name} {age} уже добавлен в систему");
+                            }
+
+                            else
+                            {
+                                user _user = new user(name, age);
+                                userlist.Add(_user);
+                                Console.WriteLine($"Пользователь {name} {age} добавлен в систему");
+                            }
+
 
                             break;
                         }
-                    case 6:
+                    case 7:
                         {
                             Console.WriteLine("Заврешение программы... ");
                             break;
@@ -129,7 +229,7 @@ namespace Pet_2
 
             }
 
-            while (t != 6);
+            while (t != 7);
         }
 
     }

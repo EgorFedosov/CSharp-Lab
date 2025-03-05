@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Pet_2")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("LeetCode")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3287ae92d354c927d51960dca43e037102d5204e")]
-[assembly: System.Reflection.AssemblyProductAttribute("Pet_2")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Pet_2")]
+[assembly: System.Reflection.AssemblyProductAttribute("LeetCode")]
+[assembly: System.Reflection.AssemblyTitleAttribute("LeetCode")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Создано классом WriteCodeFragment MSBuild.

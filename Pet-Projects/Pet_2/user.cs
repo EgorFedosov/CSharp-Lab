@@ -11,21 +11,51 @@ namespace pet_2
         private ushort age;
         public ushort _age { get { return this.age; } private set { } }
 
-        private Lib lib;
-        public Lib _lib { get { return this.lib; } private set { } }
+        // private Lib lib;
+        // public Lib _lib { get { return this.lib; } private set { } }
 
-
-        public user(string _name, ushort _age, Lib _lib)
+        public List<Lib> list = new List<Lib> { };
+        public user(string name, ushort age)
         {
-            _name = name;
-            _age = age;
-            _lib = lib;
+            this.name = name;
+            this.age = age;
+            this.list = new List<Lib>();
+        }
+
+        public void Add(Lib lib)
+        {
+            this.list.Add(lib);
+        }
+
+        public bool SearchUser(string name, ushort age)
+        {
+            return this.name == name && this.age == age;
+        }
+
+        public void PrintList()
+        {
+            foreach (Lib o in list)
+            {
+                Console.WriteLine(" ", o.print);
+            }
         }
 
         public void print()
         {
-            Console.WriteLine($"Имя: {_name}, возраст: {_age}.  Книга(и): {_lib.print}");
+            Console.Write($"Имя: {_name}, возраст: {_age}. ");
+            if (list.Count == 0)
+            {
+                Console.WriteLine(" Книг нет ");
+            }
+
+            else
+            {
+                Console.Write("Книги: ");
+                foreach (Lib o in list)
+                {
+                    o.print();
+                }
+            }
         }
     }
 }
-        
