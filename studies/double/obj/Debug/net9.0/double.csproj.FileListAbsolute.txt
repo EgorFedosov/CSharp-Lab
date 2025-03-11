@@ -1,0 +1,15 @@
+D:\Project\studies\double\bin\Debug\net9.0\double.exe
+D:\Project\studies\double\bin\Debug\net9.0\double.deps.json
+D:\Project\studies\double\bin\Debug\net9.0\double.runtimeconfig.json
+D:\Project\studies\double\bin\Debug\net9.0\double.dll
+D:\Project\studies\double\bin\Debug\net9.0\double.pdb
+D:\Project\studies\double\obj\Debug\net9.0\double.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\studies\double\obj\Debug\net9.0\double.AssemblyInfoInputs.cache
+D:\Project\studies\double\obj\Debug\net9.0\double.AssemblyInfo.cs
+D:\Project\studies\double\obj\Debug\net9.0\double.csproj.CoreCompileInputs.cache
+D:\Project\studies\double\obj\Debug\net9.0\double.sourcelink.json
+D:\Project\studies\double\obj\Debug\net9.0\double.dll
+D:\Project\studies\double\obj\Debug\net9.0\refint\double.dll
+D:\Project\studies\double\obj\Debug\net9.0\double.pdb
+D:\Project\studies\double\obj\Debug\net9.0\double.genruntimeconfig.cache
+D:\Project\studies\double\obj\Debug\net9.0\ref\double.dll
