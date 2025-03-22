@@ -1,6 +1,6 @@
 using System;
 
-namespace Pet_3
+namespace Pet_3    
 {
     enum Type { car, truck, airplane, train, ship }
     abstract class Transport
@@ -10,9 +10,16 @@ namespace Pet_3
         protected int speed;
         protected Type type;
 
-        abstract void Drive() { }
+        public abstract void drive();
 
-        virtual void Info() { };
-
+        public virtual void setValue(string name, bool isAvailable, int speed, Type type)
+        {
+            this.name = name;
+            this.isAvailable = isAvailable;
+            this.speed = speed;
+            this.type = type;
+            
+        }
+        public abstract void print();
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Project\\Pet-Projects\\Pet_3\\Pet_3.csproj": {}
+    "D:\\Project\\Pet-Projects\\Transport simulator\\Pet_3.csproj": {}
   },
   "projects": {
-    "D:\\Project\\Pet-Projects\\Pet_3\\Pet_3.csproj": {
+    "D:\\Project\\Pet-Projects\\Transport simulator\\Pet_3.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Project\\Pet-Projects\\Pet_3\\Pet_3.csproj",
+        "projectUniqueName": "D:\\Project\\Pet-Projects\\Transport simulator\\Pet_3.csproj",
         "projectName": "Pet_3",
-        "projectPath": "D:\\Project\\Pet-Projects\\Pet_3\\Pet_3.csproj",
+        "projectPath": "D:\\Project\\Pet-Projects\\Transport simulator\\Pet_3.csproj",
         "packagesPath": "C:\\Users\\Егор\\.nuget\\packages\\",
-        "outputPath": "D:\\Project\\Pet-Projects\\Pet_3\\obj\\",
+        "outputPath": "D:\\Project\\Pet-Projects\\Transport simulator\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Егор\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -59,7 +59,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.103/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.104/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
