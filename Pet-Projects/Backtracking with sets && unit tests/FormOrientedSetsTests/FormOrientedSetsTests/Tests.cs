@@ -25,7 +25,7 @@ namespace lab2.FormOrientedSetsTests.FormOrientedSetsTests
         public void ReadFile_FileExists_ReturnsContent()
         {
             // Arrange
-            string filePath = @"D:\RPIIS\sem2\lab2\set.txt"; // Указываем конкретный путь к файлу
+            string filePath = @"D:\CSharp-Lab\Pet-Projects\Backtracking with sets && unit tests\set.txt"; // Указываем конкретный путь к файлу
             string expectedContent = "Test file content";
 
             // Создаём файл и записываем в него содержимое

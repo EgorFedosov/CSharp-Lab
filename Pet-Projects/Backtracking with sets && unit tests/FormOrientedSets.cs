@@ -24,7 +24,7 @@ namespace lab2
         {
             try
             {
-                string filePath = @"D:\RPIIS\sem2\lab2\set.txt";
+                string filePath = @"D:\CSharp-Lab\Pet-Projects\Backtracking with sets && unit tests\set.txt";
                 if (!File.Exists(filePath))
                 {
                     Console.WriteLine($"Файл {fileName} не найден в {filePath}");
