@@ -10,12 +10,12 @@
 using System;
 using System.Reflection;
 
-[assembly: System.Reflection.AssemblyCompanyAttribute("Pet_2")]
+[assembly: System.Reflection.AssemblyCompanyAttribute("Console marketplace")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
 [assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+38c897bfa253217cbdd4b4180f90b7301b9443cf")]
-[assembly: System.Reflection.AssemblyProductAttribute("Pet_2")]
-[assembly: System.Reflection.AssemblyTitleAttribute("Pet_2")]
+[assembly: System.Reflection.AssemblyProductAttribute("Console marketplace")]
+[assembly: System.Reflection.AssemblyTitleAttribute("Console marketplace")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
 
 // Создано классом WriteCodeFragment MSBuild.

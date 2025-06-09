@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\CSharp\\Pet-Projects\\Library\\Pet_2.csproj": {}
+    "D:\\CSharp\\Pet-Projects\\Console marketplace\\Console marketplace\\Console marketplace.csproj": {}
   },
   "projects": {
-    "D:\\CSharp\\Pet-Projects\\Library\\Pet_2.csproj": {
+    "D:\\CSharp\\Pet-Projects\\Console marketplace\\Console marketplace\\Console marketplace.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\CSharp\\Pet-Projects\\Library\\Pet_2.csproj",
-        "projectName": "Pet_2",
-        "projectPath": "D:\\CSharp\\Pet-Projects\\Library\\Pet_2.csproj",
+        "projectUniqueName": "D:\\CSharp\\Pet-Projects\\Console marketplace\\Console marketplace\\Console marketplace.csproj",
+        "projectName": "Console marketplace",
+        "projectPath": "D:\\CSharp\\Pet-Projects\\Console marketplace\\Console marketplace\\Console marketplace.csproj",
         "packagesPath": "C:\\Users\\Егор\\.nuget\\packages\\",
-        "outputPath": "D:\\CSharp\\Pet-Projects\\Library\\obj\\",
+        "outputPath": "D:\\CSharp\\Pet-Projects\\Console marketplace\\Console marketplace\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Егор\\AppData\\Roaming\\NuGet\\NuGet.Config"
