@@ -17,12 +17,18 @@
         {
             this.Type = ACType.AdvancedAC;
             this.Speed = FlowSpeed.Medium;
-
         }
 
         public void ChangeSpeed(FlowSpeed speed)
         {
             this.Speed = speed;
+        }
+        
+        public void Settings(bool isOn, int temp, FlowSpeed speed)
+        {
+            base.Settings(isOn, temp);
+            ChangeSpeed(speed);
+            
         }
     }
 

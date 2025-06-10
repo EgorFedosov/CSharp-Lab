@@ -1,7 +1,7 @@
 ﻿namespace SmartHomeSystem.SmartAC
 {
 
-    public abstract class AbstractAC
+    public abstract class AbstractAC: ISmartAC
     {
     
         public enum ACType
@@ -46,6 +46,12 @@
         public abstract ACStatus GetStatus();
         public abstract int GetTemp();
         public abstract void SetTemp(int temp);
+
+        public virtual void Settings(bool isOn, int temp)
+        {
+            Turn(isOn);
+            SetTemp(temp);
+        }
     }
 
 }

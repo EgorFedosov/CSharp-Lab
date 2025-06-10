@@ -43,6 +43,14 @@ namespace SmartHomeSystem.SmartAC
         {
             this.Zone = zone;
         }
+        
+        public void Settings(bool isOn, int temp, FlowSpeed speed, FlowZone zone, ScentAC scent)
+        {
+            base.Settings(isOn, temp, speed);
+            ChangeScent(scent);
+            ChangeZoneFlow(zone);
+            
+        }
     }
 
 }

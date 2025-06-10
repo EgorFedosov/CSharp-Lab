@@ -5,7 +5,8 @@
     {
         
         void Turn(bool isOn);
-        AbstractLigth.LightStatus GetStatus();
+        void Settings(bool isOn, AbstractLight.LightStatus status);
+        AbstractLight.LightStatus GetStatus();
         
     }
     

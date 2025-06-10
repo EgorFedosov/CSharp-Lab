@@ -18,9 +18,14 @@
             this.Disco = DiscoLight.Off;
         }
         
-        public void SetDiscoMode(bool isOn)
+        public void Settings(bool isOn, LightStatus status, LightColor color, bool isDisco )
         {
-            this._disco = isOn ? DiscoLight.On : DiscoLight.Off;
+            base.Settings(isOn, status, color);
+            SetDiscoMode(isDisco);
+        }
+        public void SetDiscoMode(bool isDisco)
+        {
+            this._disco = isDisco ? DiscoLight.On : DiscoLight.Off;
         }
     }
 

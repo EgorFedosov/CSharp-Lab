@@ -7,6 +7,7 @@
         {
             White,
             Red,
+            MutedYellow,
             Blue,
             Pink,
         };
@@ -18,6 +19,12 @@
         {
             this.Type = LightType.RgbLight;
             this.Color = LightColor.White;
+        }
+
+        public void Settings(bool isOn, LightStatus status, LightColor color)
+        {
+          base.Settings(isOn, status);
+          SetLightColor(color);
         }
 
         public void SetLightColor(LightColor color)
