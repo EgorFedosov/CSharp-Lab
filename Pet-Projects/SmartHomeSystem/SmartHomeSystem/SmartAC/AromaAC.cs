@@ -3,7 +3,7 @@
 namespace SmartHomeSystem.SmartAC
 {
 
-    public class AromaAC: AdvancedAC
+    public class AromaAC : AdvancedAC
     {
         public enum FlowZone
         {
@@ -23,33 +23,32 @@ namespace SmartHomeSystem.SmartAC
 
         private FlowZone _zone;
         private ScentAC? _scent;
-        
+
         public FlowZone Zone { get; set; }
         public ScentAC? Scent { get; set; }
 
         public AromaAC() : base()
         {
-            this.Type = ACType.AromaAC;
-            this.Scent = null;
-            this.Zone = FlowZone.Front;
+            Type = ACType.AromaAC;
+            Scent = null;
+            Zone = FlowZone.Front;
         }
 
         public void ChangeScent(ScentAC scent)
         {
-            this.Scent = scent;
+            Scent = scent;
         }
-        
+
         public void ChangeZoneFlow(FlowZone zone)
         {
-            this.Zone = zone;
+            Zone = zone;
         }
-        
+
         public void Settings(bool isOn, int temp, FlowSpeed speed, FlowZone zone, ScentAC scent)
         {
             base.Settings(isOn, temp, speed);
             ChangeScent(scent);
             ChangeZoneFlow(zone);
-            
         }
     }
 

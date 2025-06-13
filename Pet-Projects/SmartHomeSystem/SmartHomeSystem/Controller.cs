@@ -1,6 +1,4 @@
-﻿using System.ComponentModel;
-using System.Diagnostics;
-using SmartHomeSystem.SmartAC;
+﻿using SmartHomeSystem.SmartAC;
 using SmartHomeSystem.SmartCamera;
 using SmartHomeSystem.SmartLight;
 
@@ -12,26 +10,17 @@ namespace SmartHomeSystem
         public enum Scenario
         {
             Home,
-            Leav,
+            Leave,
             GoodNight,
             GoodMorning,
-            Party,
-            DeviceInfo
+            Party
         }
-        /*
-         * дом - включены 7 ламп, 5 обычных и 2 ргб желтый цыет
-         * Лив - Все лампы выкл, кондционеры выкл
-         * ночь - вкл только 2 желтых ламбы, кондиционер 1 с запахом эквалипт и лоу
-         * утро - ламбы офф, 2 кондиционера базовых
-         * парти - базовые лампы офф, ргб вкл разные цвета, диско вкл, кондиционеры медиум с фруктами
-         * инфо - какой сценарий, что включено, какие режимы  
-         */
-        private List<ISmartLight> _allLights = [];
-        private List<ISmartAC> _allAcs = [];
-        private List<ISmartCamera> _allCameras = [];
 
-        private Scenario _scenario;
-        public Scenario Scenar { get; set; }
+        private Scenario _currentScenario;
+
+        private List<ISmartLight> _allLights = new(64);
+        private List<ISmartAC> _allAcs = new(32);
+        private List<ISmartCamera> _allCameras = new(32);
 
         public Controller()
         {
@@ -42,38 +31,193 @@ namespace SmartHomeSystem
 
         private void InitializeLights()
         {
-            for (int i = 0; i < 10; i++)
-            {
-                if (i % 3 == 0)
-                    _allLights.Add(new PartyLight());
-                else if (i % 2 == 0)
-                    _allLights.Add(new BasicLight());
-                else
-                    _allLights.Add(new RgbLight());
-            }
+            for (var i = 0; i < 5; i++) _allLights.Add(new BasicLight());
+
+            for (var i = 0; i < 3; i++) _allLights.Add(new PartyLight());
+
+            for (var i = 0; i < 2; i++) _allLights.Add(new RgbLight());
         }
 
         private void InitializeCameras()
         {
-            for (int i = 0; i < 10; i++)
-            {
-                _allCameras.Add(new BasicCamera());
-            }
+            for (var i = 0; i < 10; i++) _allCameras.Add(new BasicCamera());
         }
 
         private void InitializeACs()
         {
-            _allAcs.Add(new BasicAC());
-            _allAcs.Add(new BasicAC());
-            _allAcs.Add(new AdvancedAC());
-            _allAcs.Add(new AdvancedAC());
-            _allAcs.Add(new AromaAC());
+            for (var i = 0; i < 2; i++) _allAcs.Add(new BasicAC());
+
+            for (var i = 0; i < 2; i++) _allAcs.Add(new AdvancedAC());
+
+            for (var i = 0; i < 2; i++) _allAcs.Add(new AromaAC());
         }
 
-        
+        private void HomeScenario()
+        {
+            var basicLightCount = 0;
+            var rgbLightCount = 0;
+            foreach (var light in _allLights)
+            {
+                light.Turn(false);
+
+                if (light is PartyLight partyLight) continue;
+
+                if (light is BasicLight && basicLightCount < 5)
+                {
+                    basicLightCount++;
+                    light.Turn(true);
+                }
+
+                if (light is RgbLight rgbLight && rgbLightCount <= 2)
+                {
+                    rgbLightCount++;
+                    rgbLight.Turn(true);
+                    rgbLight.SetLightColor(RgbLight.LightColor.MutedYellow);
+                }
+            }
+
+            var basicAcCount = 0;
+            foreach (var ac in _allAcs)
+            {
+                ac.Turn(false);
+
+                if (ac is BasicAC basicAc && basicAcCount < 2)
+                {
+                    basicAcCount++;
+                    basicAc.Turn(true);
+                }
+            }
+        }
+
+        private void LeaveScenario()
+        {
+            foreach (var light in _allLights) light.Turn(false);
+
+            foreach (var ac in _allAcs) ac.Turn(false);
+        }
+
+        private void GoodNightScenario()
+        {
+            var rgbLightCount = 0;
+            foreach (var light in _allLights)
+            {
+                light.Turn(false);
+                if (light is RgbLight rgbLight && rgbLightCount <= 1)
+                {
+                    rgbLightCount++;
+                    rgbLight.Turn(true);
+                    rgbLight.SetLightColor(RgbLight.LightColor.MutedYellow);
+                }
+            }
+
+            foreach (var ac in _allAcs)
+            {
+                ac.Turn(false);
+
+                if (ac is AromaAC aromaAc)
+                {
+                    aromaAc.Turn(true);
+                    aromaAc.Scent = AromaAC.ScentAC.Eucalyptus;
+                    break;
+                }
+            }
+        }
+
+        private void GoodMorningScenario()
+        {
+            var basicAcCount = 0;
+            foreach (var ac in _allAcs)
+            {
+                ac.Turn(false);
+                if (ac is BasicAC basicAc && basicAcCount < 2)
+                {
+                    basicAc.Turn(true);
+                    basicAcCount++;
+                }
+            }
+
+            foreach (var light in _allLights) light.Turn(false);
+        }
+
+        private void PartyScenario()
+        {
+            var random = new Random();
+            foreach (var light in _allLights)
+            {
+                light.Turn(false);
+                if (light is RgbLight rgbLight)
+                {
+                    rgbLight.Turn(true);
+                    rgbLight.SetLightColor((RgbLight.LightColor)random.Next(0, 5));
+                }
+                else if (light is PartyLight partyLight)
+                {
+                    partyLight.Turn(true);
+                    partyLight.Settings(true, AbstractLight.LightStatus.On, RgbLight.LightColor.Red);
+                }
+            }
+
+            foreach (var ac in _allAcs)
+            {
+                ac.Turn(false);
+                if (ac is AromaAC aromaAc)
+                {
+                    aromaAc.Turn(true);
+                    aromaAc.Scent = AromaAC.ScentAC.FruityNote;
+                }
+                else
+                {
+                    ac.Turn(true);
+                }
+            }
+        }
+
         public void SetScenario(Scenario scenario)
         {
-            
+            _currentScenario = scenario;
+            switch (scenario)
+            {
+                case Scenario.Home:
+                    HomeScenario();
+                    break;
+
+                case Scenario.Leave:
+                    LeaveScenario();
+                    break;
+
+                case Scenario.GoodNight:
+                    GoodNightScenario();
+                    break;
+
+                case Scenario.GoodMorning:
+                    GoodMorningScenario();
+                    break;
+
+                case Scenario.Party:
+                    PartyScenario();
+                    break;
+
+                default:
+                    Console.WriteLine("unknown scenario");
+                    break;
+            }
+        }
+
+        public void DeviceInfo()
+        {
+            Console.WriteLine($"House condition: \n" +
+                              $" Current scenario: {_currentScenario} ");
+            var lightOn = _allLights.Count(light => light.GetStatus() == AbstractLight.LightStatus.On);
+            var acOn = _allAcs.Count(ac => ac.GetStatus() == AbstractAC.ACStatus.On);
+            var cameraOn = _allCameras.Count(camera => camera.GetStatus() == AbstractCamera.CameraStatus.On);
+
+            Console.WriteLine($"Light: \n " +
+                              $"{lightOn} out of {_allLights.Count} work");
+
+            Console.WriteLine($"AC: \n " +
+                              $"{acOn} out of {_allAcs.Count} work");
+            Console.WriteLine($"Cameras: \n " +
+                              $"{cameraOn} out of {_allCameras.Count} work");
         }
     }
 

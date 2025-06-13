@@ -12,20 +12,21 @@
         private DiscoLight _disco;
         public DiscoLight Disco { get; set; }
 
-        public PartyLight():base()
+        public PartyLight() : base()
         {
-            this.Type = LightType.PartyLight;
-            this.Disco = DiscoLight.Off;
+            Type = LightType.PartyLight;
+            Disco = DiscoLight.Off;
         }
-        
-        public void Settings(bool isOn, LightStatus status, LightColor color, bool isDisco )
+
+        public void Settings(bool isOn, LightStatus status, LightColor color, bool isDisco)
         {
             base.Settings(isOn, status, color);
             SetDiscoMode(isDisco);
         }
+
         public void SetDiscoMode(bool isDisco)
         {
-            this._disco = isDisco ? DiscoLight.On : DiscoLight.Off;
+            _disco = isDisco ? DiscoLight.On : DiscoLight.Off;
         }
     }
 

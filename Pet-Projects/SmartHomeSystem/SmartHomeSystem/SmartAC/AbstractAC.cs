@@ -1,16 +1,15 @@
 ﻿namespace SmartHomeSystem.SmartAC
 {
 
-    public abstract class AbstractAC: ISmartAC
+    public abstract class AbstractAC : ISmartAC
     {
-    
         public enum ACType
         {
             BasicAC,
             AdvancedAC,
-            AromaAC 
+            AromaAC
         };
-        
+
         public enum ACStatus
         {
             On,
@@ -23,19 +22,16 @@
 
         public int Temp
         {
-            get
-            {
-                return _temp;
-            }
+            get => _temp;
             set
             {
                 if (value < 10)
                     _temp = 10;
-                
+
                 else if (value > 24)
                     _temp = 25;
-                
-                else _temp = value; 
+
+                else _temp = value;
             }
         }
 

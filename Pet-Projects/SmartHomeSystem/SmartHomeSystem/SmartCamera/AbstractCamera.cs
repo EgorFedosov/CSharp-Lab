@@ -1,7 +1,7 @@
 ﻿namespace SmartHomeSystem.SmartCamera
 {
 
-    abstract public class AbstractCamera : ISmartCamera
+    public abstract class AbstractCamera : ISmartCamera
     {
         public enum CameraStatus
         {
@@ -10,7 +10,7 @@
         };
 
         private CameraStatus _status;
-        
+
         public CameraStatus Status { get; set; }
 
         public abstract void Turn(bool isOn);

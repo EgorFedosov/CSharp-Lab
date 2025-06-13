@@ -7,7 +7,7 @@
         {
             Low,
             Medium,
-            High 
+            High
         };
 
         private FlowSpeed _speed;
@@ -15,20 +15,19 @@
 
         public AdvancedAC() : base()
         {
-            this.Type = ACType.AdvancedAC;
-            this.Speed = FlowSpeed.Medium;
+            Type = ACType.AdvancedAC;
+            Speed = FlowSpeed.Medium;
         }
 
         public void ChangeSpeed(FlowSpeed speed)
         {
-            this.Speed = speed;
+            Speed = speed;
         }
-        
+
         public void Settings(bool isOn, int temp, FlowSpeed speed)
         {
             base.Settings(isOn, temp);
             ChangeSpeed(speed);
-            
         }
     }
 
