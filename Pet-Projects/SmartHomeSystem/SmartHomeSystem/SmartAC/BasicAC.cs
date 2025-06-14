@@ -14,17 +14,7 @@
         {
             Status = isOn ? ACStatus.On : ACStatus.Off;
         }
-
-        public override ACStatus GetStatus()
-        {
-            return Status;
-        }
-
-        public override int GetTemp()
-        {
-            return Temp;
-        }
-
+        
         public override void SetTemp(int temp)
         {
             Temp = temp;

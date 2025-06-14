@@ -13,11 +13,6 @@
         {
             Status = isOn ? LightStatus.On : LightStatus.Off;
         }
-
-        public override LightStatus GetStatus()
-        {
-            return Status;
-        }
     }
 
 }

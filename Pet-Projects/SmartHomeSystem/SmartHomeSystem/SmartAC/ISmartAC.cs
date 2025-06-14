@@ -1,11 +1,12 @@
-﻿namespace SmartHomeSystem.SmartAC
+﻿using SmartHomeSystem.SmartLight;
+
+namespace SmartHomeSystem.SmartAC
 {
 
     public interface ISmartAC
     {
         void Turn(bool isOn);
-        int GetTemp();
-        AbstractAC.ACStatus GetStatus();
+        AbstractAC.ACStatus Status { get; set; }
     }
 
 }

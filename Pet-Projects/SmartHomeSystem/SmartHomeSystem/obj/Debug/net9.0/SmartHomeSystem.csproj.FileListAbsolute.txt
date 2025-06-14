@@ -1,0 +1,15 @@
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\bin\Debug\net9.0\SmartHomeSystem.exe
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\bin\Debug\net9.0\SmartHomeSystem.deps.json
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\bin\Debug\net9.0\SmartHomeSystem.runtimeconfig.json
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\bin\Debug\net9.0\SmartHomeSystem.dll
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\bin\Debug\net9.0\SmartHomeSystem.pdb
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\obj\Debug\net9.0\SmartHomeSystem.GeneratedMSBuildEditorConfig.editorconfig
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\obj\Debug\net9.0\SmartHomeSystem.AssemblyInfoInputs.cache
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\obj\Debug\net9.0\SmartHomeSystem.AssemblyInfo.cs
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\obj\Debug\net9.0\SmartHomeSystem.csproj.CoreCompileInputs.cache
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\obj\Debug\net9.0\SmartHomeSystem.sourcelink.json
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\obj\Debug\net9.0\SmartHomeSystem.dll
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\obj\Debug\net9.0\refint\SmartHomeSystem.dll
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\obj\Debug\net9.0\SmartHomeSystem.pdb
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\obj\Debug\net9.0\SmartHomeSystem.genruntimeconfig.cache
+D:\CSharp\Pet-Projects\SmartHomeSystem\SmartHomeSystem\obj\Debug\net9.0\ref\SmartHomeSystem.dll

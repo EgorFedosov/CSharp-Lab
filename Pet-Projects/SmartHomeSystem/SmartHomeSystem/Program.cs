@@ -6,10 +6,8 @@
         {
             var controller = new Controller();
             Console.WriteLine("Welcome to the smart home! The house has 20 smart lamps, 6 air conditioners, and 10 cameras.");
-                // Возможно добавить вывод конкретно как работает устройво(например какой цвет у ламп)
                 // Добавить обработку исключений в главном меню
-                // подумать, где тут можно использовать in out ref
-                // посмотреть возможно удалить лишние методы которые не используются
+            // упростить функцию гет инфо за счет в каждом объекте написать метод getDetails 
                 // проверить код на "чистоту" и проверить порядок объявления методов
             while (true)
             {
@@ -52,8 +50,8 @@
                         break;
 
                     case 6:
-                        controller.DeviceInfo();
                         Console.WriteLine("Displaying device information...");
+                        controller.DeviceInfo();
                         break;
 
                     case 0:

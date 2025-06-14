@@ -8,8 +8,7 @@
             On,
             Off
         };
-
-        private DiscoLight _disco;
+        
         public DiscoLight Disco { get; set; }
 
         public PartyLight() : base()
@@ -17,16 +16,16 @@
             Type = LightType.PartyLight;
             Disco = DiscoLight.Off;
         }
-
-        public void Settings(bool isOn, LightStatus status, LightColor color, bool isDisco)
+        
+        public void SetStatus(LightStatus status, LightColor color, DiscoLight discoLight)
         {
-            base.Settings(isOn, status, color);
-            SetDiscoMode(isDisco);
+            base.SetStatus(status, color);
+            SetDiscoMode(true);
         }
-
+        
         public void SetDiscoMode(bool isDisco)
         {
-            _disco = isDisco ? DiscoLight.On : DiscoLight.Off;
+            Disco = isDisco ? DiscoLight.On : DiscoLight.Off;
         }
     }
 

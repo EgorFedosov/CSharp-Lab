@@ -59,16 +59,13 @@ namespace SmartHomeSystem
             foreach (var light in _allLights)
             {
                 light.Turn(false);
-
-                if (light is PartyLight partyLight) continue;
-
                 if (light is BasicLight && basicLightCount < 5)
                 {
                     basicLightCount++;
                     light.Turn(true);
                 }
 
-                if (light is RgbLight rgbLight && rgbLightCount <= 2)
+                else if (light is RgbLight rgbLight && rgbLightCount <= 2)
                 {
                     rgbLightCount++;
                     rgbLight.Turn(true);
@@ -116,8 +113,7 @@ namespace SmartHomeSystem
 
                 if (ac is AromaAC aromaAc)
                 {
-                    aromaAc.Turn(true);
-                    aromaAc.Scent = AromaAC.ScentAC.Eucalyptus;
+                    aromaAc.Settings(true, 15, AdvancedAC.FlowSpeed.Low, AromaAC.FlowZone.All, AromaAC.ScentAC.Eucalyptus);
                     break;
                 }
             }
@@ -153,7 +149,7 @@ namespace SmartHomeSystem
                 else if (light is PartyLight partyLight)
                 {
                     partyLight.Turn(true);
-                    partyLight.Settings(true, AbstractLight.LightStatus.On, RgbLight.LightColor.Red);
+                    partyLight.SetStatus(AbstractLight.LightStatus.On, RgbLight.LightColor.Red, PartyLight.DiscoLight.On);
                 }
             }
 
@@ -162,8 +158,7 @@ namespace SmartHomeSystem
                 ac.Turn(false);
                 if (ac is AromaAC aromaAc)
                 {
-                    aromaAc.Turn(true);
-                    aromaAc.Scent = AromaAC.ScentAC.FruityNote;
+                    aromaAc.Settings(true, 18, AdvancedAC.FlowSpeed.Medium, AromaAC.FlowZone.All, AromaAC.ScentAC.Freshness);
                 }
                 else
                 {
@@ -207,15 +202,61 @@ namespace SmartHomeSystem
         {
             Console.WriteLine($"House condition: \n" +
                               $" Current scenario: {_currentScenario} ");
-            var lightOn = _allLights.Count(light => light.GetStatus() == AbstractLight.LightStatus.On);
-            var acOn = _allAcs.Count(ac => ac.GetStatus() == AbstractAC.ACStatus.On);
+            var lightOn = _allLights.Count(light => light.Status == AbstractLight.LightStatus.On);
+            var acOn = _allAcs.Count(ac => ac.Status == AbstractAC.ACStatus.On);
             var cameraOn = _allCameras.Count(camera => camera.GetStatus() == AbstractCamera.CameraStatus.On);
 
             Console.WriteLine($"Light: \n " +
                               $"{lightOn} out of {_allLights.Count} work");
-
+            foreach (var light in _allLights)
+            {
+                if (light is RgbLight rgbLight)
+                {
+                    if (rgbLight.Status == AbstractLight.LightStatus.Off)
+                    {
+                        Console.WriteLine($"Rgb Light: {rgbLight.Status}");
+                    } else Console.WriteLine($"Rgb Light: {rgbLight.Status}, Color: {rgbLight.Color}");
+                }
+                else if (light is PartyLight partyLight)
+                {
+                    if (partyLight.Status == AbstractLight.LightStatus.Off)
+                    {
+                        Console.WriteLine($"Rgb Light: {partyLight.Status}");
+                    } else Console.WriteLine($"Party Light: {partyLight.Status}, Color: {partyLight.Color}, Disco mode: {partyLight.Disco} ");
+                }
+                else if (light is BasicLight basicLight)
+                {
+                    Console.WriteLine($"Basic Light: {basicLight.Status}");
+                }
+            }
+            Console.WriteLine();
             Console.WriteLine($"AC: \n " +
                               $"{acOn} out of {_allAcs.Count} work");
+            foreach (var ac in _allAcs)
+            {
+                if (ac is AromaAC aromaAc)
+                {
+                    if (aromaAc.Status == AbstractAC.ACStatus.Off)
+                    {
+                        Console.WriteLine($"Aroma Ac: {aromaAc.Status}");
+                    } else Console.WriteLine($"Aroma Ac: {aromaAc.Status}, Temperature: {aromaAc.Temp}, Scent: {aromaAc.Scent}, Zone: {aromaAc.Zone}, Speed: {aromaAc.Speed} ");
+                }
+                else if (ac is AdvancedAC advancedAc)
+                {
+                    if (advancedAc.Status == AbstractAC.ACStatus.Off)
+                    {
+                        Console.WriteLine($"Advanced ac: {advancedAc.Status}");
+                    } else Console.WriteLine($"Advanced ac: {advancedAc.Status}, Temperature: {advancedAc.Temp}, Speed: {advancedAc.Speed}");
+                }
+                else if (ac is BasicAC basicAc)
+                {
+                    if (basicAc.Status == AbstractAC.ACStatus.Off)
+                    {
+                        Console.WriteLine($"Basic ac: {basicAc.Status}");
+                    } else  Console.WriteLine($"Basic ac: {basicAc.Status}, Temperature: {basicAc.Temp}");
+                }
+            }
+            Console.WriteLine();
             Console.WriteLine($"Cameras: \n " +
                               $"{cameraOn} out of {_allCameras.Count} work");
         }

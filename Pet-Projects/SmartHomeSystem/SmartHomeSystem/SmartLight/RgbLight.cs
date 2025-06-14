@@ -21,9 +21,9 @@
             Color = LightColor.White;
         }
 
-        public void Settings(bool isOn, LightStatus status, LightColor color)
+        public void SetStatus(LightStatus status, LightColor color)
         {
-            base.Settings(isOn, status);
+            base.SetStatus(LightStatus.On);
             SetLightColor(color);
         }
 
