@@ -21,6 +21,8 @@
 
         public abstract void Turn(bool isOn);
 
+        public abstract void GetDetails();
+
         public virtual void SetStatus(LightStatus status)
         {
             if (status == LightStatus.On)

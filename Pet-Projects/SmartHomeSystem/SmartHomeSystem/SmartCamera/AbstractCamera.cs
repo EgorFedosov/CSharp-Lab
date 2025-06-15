@@ -8,14 +8,10 @@
             On,
             Off
         };
-
-        private CameraStatus _status;
-
+        
         public CameraStatus Status { get; set; }
 
         public abstract void Turn(bool isOn);
-
-        public abstract CameraStatus GetStatus();
     }
 
 }

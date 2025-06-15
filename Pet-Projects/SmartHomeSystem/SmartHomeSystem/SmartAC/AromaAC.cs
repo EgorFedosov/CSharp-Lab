@@ -21,9 +21,6 @@ namespace SmartHomeSystem.SmartAC
             Eucalyptus
         }
 
-        private FlowZone _zone;
-        private ScentAC? _scent;
-
         public FlowZone Zone { get; set; }
         public ScentAC? Scent { get; set; }
 
@@ -33,7 +30,22 @@ namespace SmartHomeSystem.SmartAC
             Scent = null;
             Zone = FlowZone.Front;
         }
+        
+        public override void GetDetails()
+        {
+            if (Status == ACStatus.Off)
+            {
+                Console.WriteLine($"{Type}: {Status}");
+            } else Console.WriteLine($"{Type}: {Status}, Temperature: {Temp}, Speed: {Speed}, Zone: {Zone}, Scent: {Scent}");
+        }
 
+        public void Settings(bool isOn, int temp, FlowSpeed speed, FlowZone zone, ScentAC scent)
+        {
+            base.Settings(isOn, temp, speed);
+            ChangeScent(scent);
+            ChangeZoneFlow(zone);
+        }
+        
         public void ChangeScent(ScentAC scent)
         {
             Scent = scent;
@@ -44,12 +56,6 @@ namespace SmartHomeSystem.SmartAC
             Zone = zone;
         }
 
-        public void Settings(bool isOn, int temp, FlowSpeed speed, FlowZone zone, ScentAC scent)
-        {
-            base.Settings(isOn, temp, speed);
-            ChangeScent(scent);
-            ChangeZoneFlow(zone);
-        }
     }
 
 }

@@ -13,6 +13,11 @@
         {
             Status = isOn ? LightStatus.On : LightStatus.Off;
         }
+
+        public override void GetDetails()
+        {
+            Console.WriteLine($"{Type}: {Status}");
+        }
     }
 
 }

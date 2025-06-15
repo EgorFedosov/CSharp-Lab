@@ -36,6 +36,7 @@
         public ACType Type { get; set; }
 
         public abstract void Turn(bool isOn);
+        public abstract void GetDetails();
         public abstract void SetTemp(int temp);
 
         public virtual void Settings(bool isOn, int temp)

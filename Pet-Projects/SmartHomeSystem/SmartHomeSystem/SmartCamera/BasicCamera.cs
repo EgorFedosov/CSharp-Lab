@@ -12,11 +12,6 @@
         {
             Status = isOn ? CameraStatus.On : CameraStatus.Off;
         }
-
-        public override CameraStatus GetStatus()
-        {
-            return Status;
-        }
     }
 
 }

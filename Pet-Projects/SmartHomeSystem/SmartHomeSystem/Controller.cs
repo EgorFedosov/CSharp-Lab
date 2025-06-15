@@ -204,7 +204,7 @@ namespace SmartHomeSystem
                               $" Current scenario: {_currentScenario} ");
             var lightOn = _allLights.Count(light => light.Status == AbstractLight.LightStatus.On);
             var acOn = _allAcs.Count(ac => ac.Status == AbstractAC.ACStatus.On);
-            var cameraOn = _allCameras.Count(camera => camera.GetStatus() == AbstractCamera.CameraStatus.On);
+            var cameraOn = _allCameras.Count(camera => camera.Status == AbstractCamera.CameraStatus.On);
 
             Console.WriteLine($"Light: \n " +
                               $"{lightOn} out of {_allLights.Count} work");
@@ -212,21 +212,15 @@ namespace SmartHomeSystem
             {
                 if (light is RgbLight rgbLight)
                 {
-                    if (rgbLight.Status == AbstractLight.LightStatus.Off)
-                    {
-                        Console.WriteLine($"Rgb Light: {rgbLight.Status}");
-                    } else Console.WriteLine($"Rgb Light: {rgbLight.Status}, Color: {rgbLight.Color}");
+                   rgbLight.GetDetails();
                 }
                 else if (light is PartyLight partyLight)
                 {
-                    if (partyLight.Status == AbstractLight.LightStatus.Off)
-                    {
-                        Console.WriteLine($"Rgb Light: {partyLight.Status}");
-                    } else Console.WriteLine($"Party Light: {partyLight.Status}, Color: {partyLight.Color}, Disco mode: {partyLight.Disco} ");
+                    partyLight.GetDetails();
                 }
                 else if (light is BasicLight basicLight)
                 {
-                    Console.WriteLine($"Basic Light: {basicLight.Status}");
+                   basicLight.GetDetails();
                 }
             }
             Console.WriteLine();
@@ -236,24 +230,15 @@ namespace SmartHomeSystem
             {
                 if (ac is AromaAC aromaAc)
                 {
-                    if (aromaAc.Status == AbstractAC.ACStatus.Off)
-                    {
-                        Console.WriteLine($"Aroma Ac: {aromaAc.Status}");
-                    } else Console.WriteLine($"Aroma Ac: {aromaAc.Status}, Temperature: {aromaAc.Temp}, Scent: {aromaAc.Scent}, Zone: {aromaAc.Zone}, Speed: {aromaAc.Speed} ");
+                    aromaAc.GetDetails();
                 }
                 else if (ac is AdvancedAC advancedAc)
                 {
-                    if (advancedAc.Status == AbstractAC.ACStatus.Off)
-                    {
-                        Console.WriteLine($"Advanced ac: {advancedAc.Status}");
-                    } else Console.WriteLine($"Advanced ac: {advancedAc.Status}, Temperature: {advancedAc.Temp}, Speed: {advancedAc.Speed}");
+                    advancedAc.GetDetails();
                 }
                 else if (ac is BasicAC basicAc)
                 {
-                    if (basicAc.Status == AbstractAC.ACStatus.Off)
-                    {
-                        Console.WriteLine($"Basic ac: {basicAc.Status}");
-                    } else  Console.WriteLine($"Basic ac: {basicAc.Status}, Temperature: {basicAc.Temp}");
+                    basicAc.GetDetails();
                 }
             }
             Console.WriteLine();

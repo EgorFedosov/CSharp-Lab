@@ -16,11 +16,22 @@
             Type = LightType.PartyLight;
             Disco = DiscoLight.Off;
         }
-        
+
+        public override void GetDetails()
+        {
+            if (Status == LightStatus.Off)
+            {
+                Console.WriteLine($"{Type}: {Status}");
+            } else Console.WriteLine($"{Type}: {Status}, Color: {Color}, Disco mode: {Disco}");
+        }
+
         public void SetStatus(LightStatus status, LightColor color, DiscoLight discoLight)
         {
             base.SetStatus(status, color);
-            SetDiscoMode(true);
+            if (discoLight == DiscoLight.On)
+            {
+                SetDiscoMode(true);
+            } else SetDiscoMode(false);
         }
         
         public void SetDiscoMode(bool isDisco)
