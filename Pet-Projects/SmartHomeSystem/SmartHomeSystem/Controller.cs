@@ -81,7 +81,7 @@ namespace SmartHomeSystem
                 if (ac is BasicAC basicAc && basicAcCount < 2)
                 {
                     basicAcCount++;
-                    basicAc.Turn(true);
+                    basicAc.Settings(true, 17);
                 }
             }
         }
@@ -127,7 +127,7 @@ namespace SmartHomeSystem
                 ac.Turn(false);
                 if (ac is BasicAC basicAc && basicAcCount < 2)
                 {
-                    basicAc.Turn(true);
+                    basicAc.Settings(true, 17);
                     basicAcCount++;
                 }
             }
@@ -210,36 +210,14 @@ namespace SmartHomeSystem
                               $"{lightOn} out of {_allLights.Count} work");
             foreach (var light in _allLights)
             {
-                if (light is RgbLight rgbLight)
-                {
-                   rgbLight.GetDetails();
-                }
-                else if (light is PartyLight partyLight)
-                {
-                    partyLight.GetDetails();
-                }
-                else if (light is BasicLight basicLight)
-                {
-                   basicLight.GetDetails();
-                }
+                light.GetDetails();
             }
             Console.WriteLine();
             Console.WriteLine($"AC: \n " +
                               $"{acOn} out of {_allAcs.Count} work");
             foreach (var ac in _allAcs)
             {
-                if (ac is AromaAC aromaAc)
-                {
-                    aromaAc.GetDetails();
-                }
-                else if (ac is AdvancedAC advancedAc)
-                {
-                    advancedAc.GetDetails();
-                }
-                else if (ac is BasicAC basicAc)
-                {
-                    basicAc.GetDetails();
-                }
+               ac.GetDetails();
             }
             Console.WriteLine();
             Console.WriteLine($"Cameras: \n " +

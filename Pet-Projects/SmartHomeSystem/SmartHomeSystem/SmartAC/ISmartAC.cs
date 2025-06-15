@@ -7,6 +7,7 @@ namespace SmartHomeSystem.SmartAC
     {
         void Turn(bool isOn);
         AbstractAC.ACStatus Status { get; set; }
+        void GetDetails(); 
     }
 
 }
